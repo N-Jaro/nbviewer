@@ -87,6 +87,15 @@ class BaseHandler(web.RequestHandler):
 
     def set_default_headers(self):
         self.add_header("Content-Security-Policy", self.content_security_policy)
+        self.add_header("Access-Control-Allow-Origin", "*")
+        self.add_header("Access-Control-Allow-Headers", "x-requested-with")
+        self.add_header("Access-Control-Allow-Methods", "POST, GET, OPTIONS")
+        self.add_header("Access-Control-Allow-Headers", "access-control-allow-origin,authorization,content-type")
+    
+    def options(self):
+        # no body
+        self.set_status(204)
+        self.finish()
 
     async def prepare(self):
         """Check if the user is authenticated with JupyterHub if the hub

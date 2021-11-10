@@ -3,7 +3,7 @@
 {% import "layout.html" as layout with context %}
 
 
-{% block otherlinks %}
+<!-- {% block otherlinks %}
   {% for fmt_name, fmt in formats.items() %}
     {% if format != fmt_name %}
       {% if fmt_name == default_format %}
@@ -27,7 +27,7 @@
   {% endif %}
 
   {{ layout.head_icon(download_url, "Download Notebook", "download", True) }}
-{% endblock %}
+{% endblock %} -->
 
 
 {% block extra_head %}
@@ -114,7 +114,7 @@
 
 
 {% block body %}
-  {{ link_breadcrumbs(breadcrumbs) }}
+  <!-- {{ link_breadcrumbs(breadcrumbs) }} -->
   <div id="notebook">
     <div id="notebook-container">
       {{ body | safe}}
@@ -142,11 +142,9 @@
 {% block version_info %}
   {{super()}}
   {% if jupyter_info %}
-  <p>
     nbconvert version: <a href="https://github.com/jupyter/nbconvert/releases/tag/{{jupyter_info['nbconvert_version']}}">
       {{jupyter_info['nbconvert_version']}}
     </a>
-  </p>
   {% endif %}
 {% endblock version_info %}
 
@@ -154,9 +152,7 @@
 {% block extra_footer %}
   {{super()}}
   {% if date %}
-  <p>
     Rendered
     <span class='date' data-date='{{date}}' title='{{date}}'>({{date}})</span>
-  </p>
   {% endif %}
 {% endblock extra_footer %}

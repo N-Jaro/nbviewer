@@ -246,7 +246,7 @@ class NBViewer(Application):
     ).tag(config=True)
 
     content_security_policy = Unicode(
-        default_value="connect-src 'none';",
+        default_value="connect-src htpp://localhost *.illinois.edu;",
         help="Content-Security-Policy header setting.",
     ).tag(config=True)
 
@@ -373,7 +373,7 @@ class NBViewer(Application):
     ).tag(config=True)
 
     render_timeout = Int(
-        default_value=15,
+        default_value=30,
         help="Time to wait for a render to complete before showing the 'Working...' page.",
     ).tag(config=True)
 
