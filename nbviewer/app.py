@@ -230,7 +230,7 @@ class NBViewer(Application):
     ).tag(config=True)
 
     cache_expiry_min = Int(
-        default_value=10 * 60, help="Minimum cache expiry (seconds)."
+        default_value=60* 60, help="Minimum cache expiry (seconds)."
     ).tag(config=True)
 
     client = Any().tag(config=True)
@@ -373,7 +373,7 @@ class NBViewer(Application):
     ).tag(config=True)
 
     render_timeout = Int(
-        default_value=30,
+        default_value=120,
         help="Time to wait for a render to complete before showing the 'Working...' page.",
     ).tag(config=True)
 
